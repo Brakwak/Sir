@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform - Personal Hygiene & Food Hygiene</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007ACC;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 15px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #007ACC;
+        }
+
+        .hero {
+            background: linear-gradient(90deg, #007ACC, #00539C);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #007ACC;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #f1f1f1;
+            border: 1px solid #e1e1e1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .dictionary {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 300px;
+            background-color: #FFB74D;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .dictionary h2 {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .dictionary input, .dictionary select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .dictionary button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .dictionary button:hover {
+            background-color: #004D40;
+        }
+
+        .dictionary .definition {
+            margin-top: 10px;
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796B;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .form-container button:hover {
+            background-color: #004D40;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Personal Hygiene & Food Hygiene</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#personal-hygiene">Personal Hygiene</a></li>
+            <li><a href="#food-hygiene">Food Hygiene</a></li>
+            <li><a href="#daily-routine">Daily Routine</a></li>
+            <li><a href="#healthy-habits">Healthy Habits</a></li>
+            <li><a href="#safety-tips">Safety Tips</a></li>
+            <li><a href="#login-signup">Login/Signup</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero" id="home">
+        <h2>Welcome to Our Educational Platform</h2>
+        <p>Learn all about personal hygiene and food hygiene to stay healthy and safe.</p>
+    </div>
+
+    <div class="content-wrapper">
+        <section id="personal-hygiene">
+            <div class="content">
+                <h2>Personal Hygiene</h2>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Personal Hygiene">
+                    <div>
+                        <h3>Why is Personal Hygiene Important?</h3>
+                        <p>Personal hygiene helps to prevent the spread of germs and keeps you healthy. It includes practices like washing hands, brushing teeth, and showering regularly.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Hand Washing">
+                    <div>
+                        <h3>Hand Washing</h3>
+                        <p>Wash your hands with soap and water for at least 20 seconds. This helps to remove dirt, bacteria, and viruses that can cause illness.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Oral Hygiene">
+                    <div>
+                        <h3>Oral Hygiene</h3>
+                        <p>Brush your teeth twice a day and floss daily. This prevents cavities, gum disease, and bad breath.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="food-hygiene">
+            <div class="content">
+                <h2>Food Hygiene</h2>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Food Hygiene">
+                    <div>
+                        <h3>Why is Food Hygiene Important?</h3>
+                        <p>Food hygiene involves handling, preparing, and storing food in a way that prevents foodborne illnesses. It ensures that food is safe to eat.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Proper Food Storage">
+                    <div>
+                        <h3>Proper Food Storage</h3>
+                        <p>Store food at the right temperature. Refrigerate perishable foods and keep dry foods in sealed containers to prevent contamination.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" alt="Cooking Food Safely">
+                    <div>
+                        <h3>Cooking Food Safely</h3>
+                        <p>Cook food to the correct temperature to kill harmful bacteria. Use a food thermometer to check if food is properly[_{{{CITATION{{{_1{](https://github.com/buribalazs/smooth-drag-order/tree/7b40d21d076c3e31765f61481f537beaf4c5ec9f/README.md)

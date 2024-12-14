@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sir_Eben Teaches</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet">
+    <style>
+        html, body {
+            min-height: 100%;
+        }
+        body, div, form, input, select, p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 16px;
+            color: #eee;
+        }
+        body {
+            background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
+            background-size: cover;
+        }
+        h1, h2 {
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        h2 {
+            margin: 0 0 0 8px;
+        }
+        .main-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .left-part, form {
+            padding: 25px;
+        }
+        .left-part {
+            text-align: center;
+        }
+        .fa-graduation-cap {
+            font-size: 72px;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select {
+            padding: 5px;
+            margin-bottom: 30px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+        input::placeholder {
+            color: #eee;
+        }
+        input:invalid {
+            border-bottom: 1px solid red;
+        }
+        option:focus {
+            border: none;
+        }
+        option {
+            background: black;
+            border: none;
+        }
+        .checkbox input {
+            margin: 0 10px 0 0;
+            vertical-align: middle;
+        }
+        .checkbox a {
+            color: #26a9e0;
+        }
+        .checkbox a:hover {
+            color: #85d6de;
+        }
+        .btn-item, button {
+            padding: 10px 5px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+            background: #26a9e0;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            color: #fff;
+        }
+        .btn-item {
+            display: inline-block;
+            margin: 20px 5px 0;
+        }
+        button {
+            width: 100%;
+        }
+        button:hover, .btn-item:hover {
+            background: #85d6de;
+        }
+        @media (min-width: 568px) {
+            html, body {
+                height: 100%;
+            }
+            .main-block {
+                flex-direction: row;
+                height: calc(100% - 50px);
+            }
+            .left-part, form {
+                flex: 1;
+                height: auto;
+            }
+        }
+    </style>
+    <script>
+        function checkLogin() {
+            // Replace this with actual login check logic
+            var isLoggedIn = false; // Assume user is not logged in for this example
+
+            if (!isLoggedIn) {
+                alert("Please sign up or log in to use this feature.");
+                window.location.href = "index.html"; // Redirect to login page
+            } else {
+                alert("You're logged in and can now use this feature.");
+                // You can redirect to the appropriate page or take another action
+            }
+        }
+
+        function validateForm() {
+            var inputs = document.querySelectorAll('input[required], select[required]');
+            var valid = true;
+
+            inputs.forEach(function(input) {
+                if (!input.value.trim()) {
+                    input.style.borderBottom = '1px solid red';
+                    valid = false;
+                } else {
+                    input.style.borderBottom = '1px solid #eee';
+                }
+            });
+
+            if (!valid) {
+                alert("Please fill in all required fields.");
+            }
+
+            return valid;
+        }
+    </script>
+</head>
+<body>
+    <div class="main-block">
+        <div class="left-part">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>Register</h1>
+            <p>Sir_Eben teaches is a website responsible for enlightening, encouraging, and entreating students to embrace career technology as an everyday subject.</p>
+            <div class="btn-group">
+                <a class="btn-item" href="javascript:void(0)" onclick="checkLogin()">Learn</a>
+                <a class="btn-item" href="javascript:void(0)" onclick="checkLogin()">Select Quiz</a>
+            </div>
+        </div>
+        <form action="/" onsubmit="return validateForm()">
+            <div class="title">
+                <i class="fas fa-pencil-alt"></i>
+                <h2>Register here</h2>
+            </div>
+            <div class="info">
+                <input class="fname" type="text" name="name" placeholder="Full name" required>
+                <input type="email" id="email" placeholder="Email: eg:ebenezerntiamoah35@gmail.com" required>
+                <input type="text" name="phone" placeholder="Phone number: +233 59 745 1028" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <select required>
+                    <option value="" disabled selected>Basic*</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" name="checkbox" required><span>I agree to the <a href="https://www.Sir_Ebenteaches.com/privacy-policy">Privacy Policy for Sir_Ebenteaches</a></span>
+            </div>
+            <p style="text-align: right; color: rgb(250, 246, 246);"><a href="login.html"><i>Already have an account? Login</i></a></p>
+            <button type="submit" formaction="first.html">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

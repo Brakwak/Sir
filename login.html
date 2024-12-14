@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Login </title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .slideshow {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow img.active {
+            opacity: 1;
+        }
+        .login-link {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1;
+        }
+        .login-link:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #aaa;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .modal-content input[type="text"],
+        .modal-content input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .modal-content a[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .modal-content a[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validateLogin() {
+            var username = document.querySelector('input[name="username"]');
+            var password = document.querySelector('input[name="password"]');
+            
+            if (!username.value.trim() || !password.value.trim()) {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="slideshow">
+        <img src="g:\FOLDERS\My first project\3D White People_ Student Carrying a Stack of Books Stock Illustration - Illustration of human___.jpeg" class="active" alt="Slideshow Image 1">
+        <img src="g:\FOLDERS\My first project\Free Photo _ Low angle of stacked books, a graduation cap and ladders for education day.jpeg" alt="Slideshow Image 2">
+        <img src="g:\FOLDERS\My first project\Free Vector _ Online education background.jpeg" alt="Slideshow Image 3">
+    </div>
+    <a class="login-link" href="javascript:void(0)" onclick="document.getElementById('loginModal').style.display='flex'">Login</a>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <a type="submit" href="first.html" onclick="return validateLogin()">Login</a>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slideshow img');
+        const totalSlides = slides.length;
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === slideIndex) {
+                    slide.classList.add('active');
+                }
+            });
+            slideIndex = (slideIndex + 1) % totalSlides;
+        }
+
+        setInterval(showSlides, 3000);
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('loginModal')) {
+                document.getElementById('loginModal').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

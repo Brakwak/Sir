@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strand Selection</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-3LK/IK4VWlnBQDH5m0F2jszT1tcHS0PlLxKxJfTC6slTst3wBYZZx5GA5ERrji9A" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background-size: cover;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 1.5em; /* Reduced the font size again */
+            animation: fadeInDown 1s ease-in-out;
+            color: #ffffff;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1;
+            overflow-y: auto; /* Added for vertical scrolling */
+            max-height: 70vh; /* Limit height to create a scroll area */
+        }
+
+        .course-card {
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            background-size: cover;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+
+        .course-content h2 {
+            font-size: 1.8em;
+            margin: 0 0 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .course-content p {
+            font-size: 1em;
+            margin: 0 0 20px;
+            color: #dcdcdc;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            flex-grow: 1;
+        }
+
+        .course-content a {
+            display: block;
+            padding: 15px 25px;
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin-top: auto;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-content a:hover {
+            background-color: rgba(69, 160, 73, 0.9);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .home-button i {
+            margin-right: 10px;
+        }
+
+        /* New background colors for each course card */
+        .course1 { background: #FF7F50; /* Coral */ }
+        .course2 { background: #6495ED; /* Cornflower Blue */ }
+        .course3 { background: #FFB6C1; /* Light Pink */ }
+        .course4 { background: #20B2AA; /* Light Sea Green */ }
+        .course5 { background: #87CEFA; /* Light Sky Blue */ }
+        .course6 { background: #9370DB; /* Medium Purple */ }
+        .course7 { background: #FFD700; /* Gold */ }
+        .course8 { background: #7FFFD4; /* Aquamarine */ }
+        .course9 { background: #FF6347; /* Tomato */ }
+        .course10 { background: #4682B4; /* Steel Blue */ }
+        .course11 { background: #DDA0DD; /* Plum */ }
+        .course12 { background: #32CD32; /* Lime Green */ }
+        .course13 { background: #FFC0CB; /* Pink */ }
+        .course14 { background: #FF4500; /* Orange Red */ }
+        .course15 { background: #00CED1; /* Dark Turquoise */ }
+        .course16 { background: #6A5ACD; /* Slate Blue */ }
+        .course17 { background: #FFA07A; /* Light Salmon */ }
+        .course18 { background: #00FA9A; /* Medium Spring Green */ }
+        .course19 { background: #BA55D3; /* Medium Orchid */ }
+    </style>
+</head>
+<body>
+    <a href="first.html" class="home-button"><i class="fas fa-home"></i> Home</a>
+    <header>
+        <h1>Select a Strand</h1>
+    </header>
+    <div class="courses-container">
+    
+        
+        <div class="course-card course1">                               
+            <div class="course-content">
+                <h2>COMMUNICATING DESIGN SYSTEMS</h2>
+                <p>Description for Course 1.</p>
+                <a href="course1.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course3">
+            <div class="course-content">
+                <h2>DESIGNING</h2>
+                <p>Description for Course 3.</p>
+                <a href="course3.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course3">
+            <div class="course-content">
+                <h2>PLANNING FOR MAKING ARTEFACTS/ PRODUCTS</h2>
+                <p>Description for Course 3.</p>
+                <a href="course3.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course1">
+            <div class="course-content">
+                <h2>MAKING ARTEFACTS FROM COMPLIANT, RESISTANT MATERIALS AND FOOD INGREDIENTS</h2>
+                <p>Description for Course 1.</p>
+                <a href="course1.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course2">
+            <div class="course-content">
+                <h2>CAREER PATHWAYS AND CAREER OPPORTUNITIES</h2>
+                <p>Description for Course 2.</p>
+                <a href="course2.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course1">
+            <div class="course-content">
+                <h2>ESTABLISHING AND MANAGING A SMALL BUSINESS ENTERPRISE</h2>
+                <p>Description for Course 1.</p>
+                <a href="course1.html">Learn More</a>
+            </div>
+        </div>
+        <div class="course-card course6[_{{{CITATION{{{_1{](https://github.com/thakurakhilesh1998/psdtohtml/tree/a8271d121a588c340665de50d6fac41a206172a6/courses%20offered.php)
